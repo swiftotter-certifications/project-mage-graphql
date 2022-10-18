@@ -3,12 +3,15 @@ declare(strict_types=1);
 
 namespace SwiftOtter\GroupShippingPolicy\Model;
 
+use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractModel;
 use SwiftOtter\GroupShippingPolicy\Api\Data\GroupShippingPolicyInterface;
 use SwiftOtter\GroupShippingPolicy\Model\ResourceModel\GroupShippingPolicy as GroupShippingPolicyResource;
 
-class GroupShippingPolicy extends AbstractModel implements GroupShippingPolicyInterface
+class GroupShippingPolicy extends AbstractModel implements GroupShippingPolicyInterface, IdentityInterface
 {
+    const CACHE_TAG = 'gsp';
+
     protected function _construct()
     {
         $this->_init(GroupShippingPolicyResource::class);
@@ -42,5 +45,13 @@ class GroupShippingPolicy extends AbstractModel implements GroupShippingPolicyIn
     public function setDescription(string $description): GroupShippingPolicyInterface
     {
         return $this->setData('description', $description);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getIdentities()
+    {
+        return [self::CACHE_TAG . '_' . $this->getId()];
     }
 }
