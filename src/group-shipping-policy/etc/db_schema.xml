@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="group_shipping_policy" resource="default" engine="innodb" comment="Group Shipping Policy">
+        <column xsi:type="smallint" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="int" name="customer_group_id" unsigned="true" nullable="false" comment="Customer Group ID" />
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Policy Title" />
+        <column xsi:type="text" name="description" nullable="true" comment="Description" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="GROUP_SHIPPING_POLICY_CUSTOMER_GROUP_ID_CUSTOMER_GROUP_CUSTOMER_GROUP_ID" table="group_shipping_policy"
+                    column="customer_group_id" referenceTable="customer_group" referenceColumn="customer_group_id" onDelete="CASCADE" />
+    </table>
+    <table name="group_shipping_policy_country" resource="default" engine="innodb" comment="Group Shipping Policy Country Link">
+        <column xsi:type="smallint" name="id" unsigned="true" nullable="false" identity="true" comment="ID" />
+        <column xsi:type="smallint" name="policy_id" unsigned="true" nullable="false" comment="Policy ID" />
+        <column xsi:type="varchar" name="country_id" nullable="false" length="2" comment="Country ID" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="GROUP_SHIPPING_POLICY_COUNTRY_POLICY_ID_GROUP_SHIPPING_POLICY_ID" table="group_shipping_policy_country"
+                    column="policy_id" referenceTable="group_shipping_policy" referenceColumn="id" onDelete="CASCADE" />
+        <constraint xsi:type="foreign" referenceId="GROUP_SHIPPING_POLICY_COUNTRY_COUNTRY_ID_DIRECTORY_COUNTRY_COUNTRY_ID" table="group_shipping_policy_country"
+                    column="country_id" referenceTable="directory_country" referenceColumn="country_id" onDelete="CASCADE" />
+    </table>
+    <table name="group_shipping_policy_callback_queue" resource="default" engine="innodb" comment="Group Shipping Policy Callback Queue">
+        <column xsi:type="smallint" name="id" unsigned="true" nullable="false" identity="true" comment="ID" />
+        <column xsi:type="smallint" name="policy_id" unsigned="true" nullable="false" comment="Policy ID" />
+        <column xsi:type="varchar" name="phone" nullable="false" length="255" comment="Callback Phone Number" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="GROUP_SHIPPING_POLICY_CALLBACK_QUEUE_POLICY_ID_GROUP_SHIPPING_POLICY_ID" table="group_shipping_policy_callback_queue"
+                    column="policy_id" referenceTable="group_shipping_policy" referenceColumn="id" onDelete="CASCADE" />
+    </table>
+</schema>

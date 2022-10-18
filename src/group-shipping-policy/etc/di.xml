@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SwiftOtter\GroupShippingPolicy\Api\Data\GroupShippingPolicyInterface"
+                type="SwiftOtter\GroupShippingPolicy\Model\GroupShippingPolicy" />
+    <preference for="SwiftOtter\GroupShippingPolicy\Api\Data\GroupShippingPolicySearchResultsInterface"
+                type="SwiftOtter\GroupShippingPolicy\Model\GroupShippingPolicySearchResults" />
+    <preference for="SwiftOtter\GroupShippingPolicy\Api\GroupShippingPolicyRepositoryInterface"
+                type="SwiftOtter\GroupShippingPolicy\Model\GroupShippingPolicyRepository" />
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="listGroupShippingPolicies" xsi:type="object">SwiftOtter\GroupShippingPolicy\Console\Command\ListPolicies</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
