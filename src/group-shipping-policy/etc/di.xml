@@ -27,6 +27,7 @@
                 <item name="listGroupShippingPolicies" xsi:type="object">SwiftOtter\GroupShippingPolicy\Console\Command\ListPolicies</item>
                 <item name="listGroupShippingPolicyCountries" xsi:type="object">SwiftOtter\GroupShippingPolicy\Console\Command\ListPolicyCountries</item>
                 <item name="listGroupShippingPolicyCallbacks" xsi:type="object">SwiftOtter\GroupShippingPolicy\Console\Command\ListPolicyCallbacks</item>
+                <item name="setGroupShippingPolicy" xsi:type="object">SwiftOtter\GroupShippingPolicy\Console\Command\SetPolicy</item>
             </argument>
         </arguments>
     </type>

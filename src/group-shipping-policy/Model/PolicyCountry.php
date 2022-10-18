@@ -5,9 +5,15 @@ namespace SwiftOtter\GroupShippingPolicy\Model;
 
 use Magento\Framework\Model\AbstractModel;
 use SwiftOtter\GroupShippingPolicy\Api\Data\PolicyCountryInterface;
+use SwiftOtter\GroupShippingPolicy\Model\ResourceModel\PolicyCountry as PolicyCountryResource;
 
 class PolicyCountry extends AbstractModel implements PolicyCountryInterface
 {
+    protected function _construct()
+    {
+        $this->_init(PolicyCountryResource::class);
+    }
+
     public function getPolicyId(): int
     {
         return (int) $this->_getData('policy_id');
