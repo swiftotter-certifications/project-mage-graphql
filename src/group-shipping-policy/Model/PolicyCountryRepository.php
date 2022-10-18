@@ -47,15 +47,15 @@ class PolicyCountryRepository implements PolicyCountryRepositoryInterface
         /** @var PolicyCountryInterface $policy */
         $policyCountry = $this->policyCountryFactory->create();
         $this->policyCountryResource->load($policyCountry, $id);
-        if (!$policy->getId()) {
+        if (!$policyCountry->getId()) {
             throw new NoSuchEntityException(__('No such record'));
         }
-        return $policy;
+        return $policyCountry;
     }
 
     public function getList(SearchCriteriaInterface $searchCriteria): PolicyCountrySearchResultsInterface
     {
-        /** @var PolicyCountryCollection $policies */
+        /** @var PolicyCountryCollection $policyCountries */
         $policyCountries = $this->policyCountryCollectionFactory->create();
 
         $this->collectionProcessor->process($searchCriteria, $policyCountries);
