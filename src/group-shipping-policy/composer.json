@@ -1,0 +1,16 @@
+{
+    "name": "swiftotter/module-group-shipping-policy",
+    "description": "",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "^103"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "SwiftOtter\\GroupShippingPolicy\\": ""
+        }
+    }
+}
