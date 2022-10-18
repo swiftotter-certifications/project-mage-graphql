@@ -7,10 +7,18 @@
     <preference for="SwiftOtter\GroupShippingPolicy\Api\GroupShippingPolicyRepositoryInterface"
                 type="SwiftOtter\GroupShippingPolicy\Model\GroupShippingPolicyRepository" />
 
+    <preference for="SwiftOtter\GroupShippingPolicy\Api\Data\PolicyCountryInterface"
+                type="SwiftOtter\GroupShippingPolicy\Model\PolicyCountry" />
+    <preference for="SwiftOtter\GroupShippingPolicy\Api\Data\PolicyCountrySearchResultsInterface"
+                type="SwiftOtter\GroupShippingPolicy\Model\PolicyCountrySearchResults" />
+    <preference for="SwiftOtter\GroupShippingPolicy\Api\PolicyCountryRepositoryInterface"
+                type="SwiftOtter\GroupShippingPolicy\Model\PolicyCountryRepository" />
+
     <type name="Magento\Framework\Console\CommandListInterface">
         <arguments>
             <argument name="commands" xsi:type="array">
                 <item name="listGroupShippingPolicies" xsi:type="object">SwiftOtter\GroupShippingPolicy\Console\Command\ListPolicies</item>
+                <item name="listGroupShippingPolicyCountries" xsi:type="object">SwiftOtter\GroupShippingPolicy\Console\Command\ListPolicyCountries</item>
             </argument>
         </arguments>
     </type>

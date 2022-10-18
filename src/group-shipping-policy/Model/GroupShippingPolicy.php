@@ -14,22 +14,6 @@ class GroupShippingPolicy extends AbstractModel implements GroupShippingPolicyIn
         $this->_init(GroupShippingPolicyResource::class);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getId()
-    {
-        return (int) $this->_getData('id');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setId($value)
-    {
-        return $this->setData('id', $value);
-    }
-
     public function getCustomerGroupId(): int
     {
         return (int) $this->_getData('customer_group_id');
