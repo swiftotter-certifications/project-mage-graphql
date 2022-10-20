@@ -23,4 +23,12 @@ interface PolicyCallbackInterface
     public function getPhone(): string;
 
     public function setPhone(string $phone): PolicyCallbackInterface;
+
+    public function getCreatedAt(): ?\DateTime;
+
+    public function setCreatedAt(\DateTime $createdAt): PolicyCallbackInterface;
+
+    public function hasBeenCalled(): bool;
+
+    public function setHasBeenCalled(bool $called): PolicyCallbackInterface;
 }

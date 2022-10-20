@@ -33,4 +33,25 @@ class PolicyCallback extends AbstractModel implements PolicyCallbackInterface
     {
         return $this->setData('phone', $phone);
     }
+
+    public function getCreatedAt(): ?\DateTime
+    {
+        $dateStr = $this->_getData('created_at');
+        return ($dateStr) ? new \DateTime($dateStr) : null;
+    }
+
+    public function setCreatedAt(\DateTime $createdAt): PolicyCallbackInterface
+    {
+        return $this->setData('created_at', $createdAt->format('Y-m-d H:i:s'));
+    }
+
+    public function hasBeenCalled(): bool
+    {
+        return $this->_getData('called');
+    }
+
+    public function setHasBeenCalled(bool $called): PolicyCallbackInterface
+    {
+        return $this->setData('called', $called);
+    }
 }
