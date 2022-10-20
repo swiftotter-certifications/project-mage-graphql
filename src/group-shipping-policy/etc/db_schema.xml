@@ -11,6 +11,9 @@
         </constraint>
         <constraint xsi:type="foreign" referenceId="GROUP_SHIPPING_POLICY_CUSTOMER_GROUP_ID_CUSTOMER_GROUP_CUSTOMER_GROUP_ID" table="group_shipping_policy"
                     column="customer_group_id" referenceTable="customer_group" referenceColumn="customer_group_id" onDelete="CASCADE" />
+        <constraint xsi:type="unique" referenceId="GROUP_SHIPPING_POLICY_CUSTOMER_GROUP_ID">
+            <column name="customer_group_id" />
+        </constraint>
     </table>
     <table name="group_shipping_policy_country" resource="default" engine="innodb" comment="Group Shipping Policy Country Link">
         <column xsi:type="smallint" name="id" unsigned="true" nullable="false" identity="true" comment="ID" />

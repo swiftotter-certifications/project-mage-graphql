@@ -8,7 +8,8 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "GROUP_SHPP_POLICY_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true
+            "GROUP_SHPP_POLICY_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true,
+            "GROUP_SHIPPING_POLICY_CUSTOMER_GROUP_ID": true
         }
     },
     "group_shipping_policy_country": {
