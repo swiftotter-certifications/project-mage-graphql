@@ -34,10 +34,10 @@ class ShippingPolicies
     private function formatPolicyData(GroupShippingPolicyInterface $policy): array
     {
         return [
+            'id' => $policy->getId(),
             'customer_group_id' => $policy->getCustomerGroupId(),
             'title' => $policy->getTitle(),
             'description' => $policy->getDescription(),
-            'country_labels' => [] //TODO Remove once dedicated country_labels resolver is in place
         ];
     }
 }
