@@ -1,0 +1,18 @@
+{
+    "name": "swiftotter/module-group-shipping-policy-graphql",
+    "description": "",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "^103",
+        "magento/module-graph-ql": "100.4.*",
+        "swiftotter/module-group-shipping-policy": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "SwiftOtter\\GroupShippingPolicyGraphQl\\": ""
+        }
+    }
+}
