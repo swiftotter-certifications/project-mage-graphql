@@ -75,10 +75,11 @@ class PolicyCallbackRepository implements PolicyCallbackRepositoryInterface
     {
         try {
             $this->callbackResource->save($callback);
+            $savedCallback = $this->getById((int) $callback->getId());
         } catch (\Exception $e) {
             throw new CouldNotSaveException(__($e->getMessage()));
         }
-        return $callback;
+        return $savedCallback;
     }
 
     /**
