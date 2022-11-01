@@ -33,6 +33,7 @@ class ShippingPolicies
     private function formatPolicyData(GroupShippingPolicyInterface $policy)
     {
         return [
+            'id' => (int) $policy->getId(),
             'customer_group_id' => $policy->getCustomerGroupId(),
             'title' => $policy->getTitle(),
             'description' => $policy->getDescription(),

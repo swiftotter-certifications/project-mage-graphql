@@ -10,8 +10,9 @@ type ShippingPolicy @doc(description: "Details of a Group Shipping Policy") {
     title: String! @doc(description: "The policy title")
     description: String @doc(description: "The full policy text content")
     country_labels(
-        format: ShippingPolicyCountryFormatEnum @doc(description: "The desired format for the country label")
-    ): [String]! @doc(description: "List of labels for the policy's associated countries")
+        format: ShippingPolicyCountryFormatEnum = NAME @doc(description: "The desired format for the country label")
+    ): [String]! @resolver(class: "SwiftOtter\\GroupShippingPolicyGraphQl\\Model\\Resolver\\ShippingPolicies\\Countries")
+        @doc(description: "List of labels for the policy's associated countries")
 }
 
 enum ShippingPolicyCountryFormatEnum @doc(description: "Possible country format values for Group Shipping Policy details") {
