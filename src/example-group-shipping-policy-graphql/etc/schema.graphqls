@@ -24,7 +24,8 @@ enum ShippingPolicyCountryFormatEnum @doc(description: "Possible country format 
 type Mutation {
     createShippingPolicyCallback(
         phone: String! @doc(description: "Customer phone number")
-    ): ShippingPolicyCallback @doc(description: "Create a Group Shipping Policy callback record")
+    ): ShippingPolicyCallback @resolver(class: "SwiftOtter\\GroupShippingPolicyGraphQl\\Model\\Resolver\\CreateShippingPolicyCallback")
+        @doc(description: "Create a Group Shipping Policy callback record")
 }
 
 type ShippingPolicyCallback @doc(description: "Details of a Group Shipping Policy callback record") {
