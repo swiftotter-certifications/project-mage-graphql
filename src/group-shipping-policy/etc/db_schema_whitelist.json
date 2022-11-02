@@ -1,0 +1,40 @@
+{
+    "group_shipping_policy": {
+        "column": {
+            "id": true,
+            "customer_group_id": true,
+            "title": true,
+            "description": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "GROUP_SHPP_POLICY_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true,
+            "GROUP_SHIPPING_POLICY_CUSTOMER_GROUP_ID": true
+        }
+    },
+    "group_shipping_policy_country": {
+        "column": {
+            "id": true,
+            "policy_id": true,
+            "country_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "GROUP_SHIPPING_POLICY_COUNTRY_POLICY_ID_GROUP_SHIPPING_POLICY_ID": true,
+            "GROUP_SHPP_POLICY_COUNTRY_COUNTRY_ID_DIR_COUNTRY_COUNTRY_ID": true
+        }
+    },
+    "group_shipping_policy_callback_queue": {
+        "column": {
+            "id": true,
+            "policy_id": true,
+            "phone": true,
+            "created_at": true,
+            "called": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "GROUP_SHPP_POLICY_CALLBACK_QUEUE_POLICY_ID_GROUP_SHPP_POLICY_ID": true
+        }
+    }
+}

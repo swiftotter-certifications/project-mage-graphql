@@ -1,0 +1,36 @@
+type Query {
+    shippingPolicies(
+        all: Boolean @doc(description: "Whether all policies are requested. If not, the customer context will be used to return the associated policy.")
+    ): [ShippingPolicy] @resolver(class: "SwiftOtter\\GroupShippingPolicyGraphQl\\Model\\Resolver\\ShippingPolicies")
+        @cache(cacheIdentity: "SwiftOtter\\GroupShippingPolicyGraphQl\\Model\\Resolver\\ShippingPolicies\\Identity")
+        @doc(description: "Return Group Shipping Policy information")
+}
+
+type ShippingPolicy @doc(description: "Details of a Group Shipping Policy") {
+    customer_group_id: Int! @doc(description: "The associated customer group ID")
+    title: String! @doc(description: "The policy title")
+    description: String @doc(description: "The full policy text content")
+    country_labels(
+        format: ShippingPolicyCountryFormatEnum = NAME @doc(description: "The desired format for the country label")
+    ): [String]! @resolver(class: "SwiftOtter\\GroupShippingPolicyGraphQl\\Model\\Resolver\\ShippingPolicies\\Countries")
+        @doc(description: "List of labels for the policy's associated countries")
+}
+
+enum ShippingPolicyCountryFormatEnum @doc(description: "Possible country format values for Group Shipping Policy details") {
+    NAME
+    ISO2
+    ISO3
+}
+
+type Mutation {
+    createShippingPolicyCallback(
+        phone: String! @doc(description: "Customer phone number")
+    ): ShippingPolicyCallback @resolver(class: "SwiftOtter\\GroupShippingPolicyGraphQl\\Model\\Resolver\\CreateShippingPolicyCallback")
+        @doc(description: "Create a Group Shipping Policy callback record")
+}
+
+type ShippingPolicyCallback @doc(description: "Details of a Group Shipping Policy callback record") {
+    policy_title: String! @doc(description: "The title of the associated policy")
+    phone: String! @doc(description: "The registered phone number")
+    created_at: String @doc(description: "The date and time the callback was registered")
+}
