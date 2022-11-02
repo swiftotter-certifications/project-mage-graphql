@@ -2,6 +2,7 @@ type Query {
     shippingPolicies(
         all: Boolean @doc(description: "Whether all policies are requested. If not, the customer context will be used to return the associated policy.")
     ): [ShippingPolicy] @resolver(class: "SwiftOtter\\GroupShippingPolicyGraphQl\\Model\\Resolver\\ShippingPolicies")
+        @cache(cacheIdentity: "SwiftOtter\\GroupShippingPolicyGraphQl\\Model\\Resolver\\ShippingPolicies\\Identity")
         @doc(description: "Return Group Shipping Policy information")
 }
 
